@@ -1,0 +1,151 @@
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        ol.file2 {
+            list-style-type: none;
+        }
+        ol.file li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        body {
+        	font-family:verdana;
+            background-image: ;
+            background-color: ;
+        }
+        
+        ul.nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #004d99;
+        }
+        
+        li.nav {
+            float: left;
+        }
+        
+        li.nav a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li.nav a:hover, .dropdown:hover .dropbtn {
+            background-color: grey;
+        }
+        
+        li.dropdown {
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {background-color: light grey}
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        body {
+            background-image: url("photo/lblue.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    </head>
+    
+    
+    <nav class="menu">
+    <ul class = "nav">
+        <li class="nav"><a href ="index.html" target= "_blank">Home</a> </li>
+        <li class="nav"><a href="introduction.html" target="_blank">Introduction</a> </li>
+        <li class="nav"><a href ="dataGathering.html" target="_blank">Data Gathering</a> </li>
+        <li class="nav"><a href ="dataCleaning.html" target="_blank">Data Cleaning</a> </li>
+        <li class="nav"><a href ="exploring.html" target="_blank">Exploring Data</a> </li>
+        <li class="nav"><a href ="clustering.html" target="_blank">Clustering</a> </li>
+        <li class="nav"><a href ="ARM.html" target="_blank">ARM and Networking</a> </li>
+        <li class="nav"><a href ="decisionTree.html" target="_blank">Decision Tree</a> </li>
+        <li class="nav"><a href ="navie.html" target="_blank">Naive Bayes</a> </li>
+        <li class="nav"><a href ="SVM.html" target="_blank">SVM</a> </li> 
+        <li class="nav"><a href ="conclusions.html" target="_blank">Conclusions</a> </li> 
+        <li class="nav"><a href ="infographic.html" target="_blank">Infographic</a> </li> 
+    </ul>
+    </nav>  
+    
+    <body>
+        <p>I will share my code and csv/txt file first, then I will explain my code and data step by step.</p>
+        <br>
+        <p>This is my Python code and csv file created by Python</p>
+        <ol class = "file">
+        <li class = "file"><a href ="files/main.py" target= "_blank">Python code</a></li>
+        <li class = "file"><a href ="files/newsapi.csv" target= "_blank">csv file by newsapi (Python)</a></li>
+        </ol>
+        <br>
+        <p>This is my R code and csv file created by R with different publisher</p>
+        <ol class = "file">
+        <li class = "file"><a href ="files/Anly501api.Rmd" target= "_blank">R code</a></li>
+        <li class = "file"><a href ="files/business-insider.txt" target= "_blank">txt file by newsapi (R)(business-insider)</a></li>
+        <li class = "file"><a href ="files/buzzfeed.txt" target= "_blank">txt file by newsapi (R)(buzzfeed)</a></li>
+        <li class = "file"><a href ="files/polygon.txt" target= "_blank">txt file by newsapi (R)(polygon)</a></li>
+        <li class = "file"><a href ="files/techcrunch.txt" target= "_blank">txt file by newsapi (R)(techcrunch)</a></li>
+
+        <li class = "file"><a href ="files/TwitterR.txt" target= "_blank">txt file by Twitter (R)</a></li>
+        </ol>
+        <br>
+        <br>
+        <p>There are some file I find on internet</p>
+        <ol class = "file2">
+        <li class = "file2"><a href ="files/marvel.csv" target= "_blank">marvel-wikia-data</a></li>
+        <li class = "file2"><p>From: https://datahub.io/five-thirty-eight/comic-characters</p></li>
+        </ol>
+        <br>
+        <h2>Explain my code</h2>
+        <h3>Python code and csv file</h3>
+        <p>This is my code for url (newsapi)</p>
+        <p>Since I got a lot of article not in English, I set language = en to get English result only</p>
+        <p>I set the key word for "marvel character" or "marvel universe" in article title only to get a more precisē result</p>
+        <img src="photo/pcode1.png" alt="python code 1">
+        <br>
+        <p>This is the code to clean up title</p>
+        <p>I did the same or similiar thing for data, publisher, headline and other</p>
+        <img src="photo/pcode2.png" alt="python code 2">
+        <p>Writer the data into the csv file</p>
+        <img src="photo/pcode3.png" alt="python code 3">
+        <p>What my python csv file looks like</p>
+        <img src="photo/pcsv.png" alt="python code 4">
+        <h3>R code and txt file</h3>
+        <p>I store the api key for twitter at the some folder with r markdown file</p>
+        <p>I read the key and use the key to access Twitter API</p>
+        <p>For different labels, I choose the different news publishers. Here is an example or techchurch</p>
+        <img src="photo/m2c1.png" alt="r code 1">
+        <p>I met a problem to write my information into txt file</p>
+        <p>That is because article that I got have value so I set it to unlist</p>
+        <img src="photo/rcode3.png" alt="r code 2">
+        <p>This is part of my Twitter txt result</p>
+        <img src="photo/rcsv1.png" alt="r code 4">
+        <p>THis is part of my News api txt result</p>
+        <img src="photo/m2c2.png" alt="r code 5">
+
+    </body>
+
+
+</html>

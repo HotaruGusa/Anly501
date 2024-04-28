@@ -1,0 +1,221 @@
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        ol.file1 li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        ol.rule li{
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+     
+        body {
+        	font-family:verdana;
+            background-image: ;
+            background-color: ;
+        }
+        
+        ul.nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #004d99;
+        }
+        
+        li.nav {
+            float: left;
+        }
+        
+        li.nav a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li.nav a:hover, .dropdown:hover .dropbtn {
+            background-color: grey;
+        }
+        
+        li.dropdown {
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {background-color: light grey}
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        body {
+            background-image: url("photo/lblue.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    </head>
+    
+    
+    <nav class="menu">
+    <ul class = "nav">
+        <li class="nav"><a href ="index.html" target= "_blank">Home</a> </li>
+        <li class="nav"><a href="introduction.html" target="_blank">Introduction</a> </li>
+        <li class="nav"><a href ="dataGathering.html" target="_blank">Data Gathering</a> </li>
+        <li class="nav"><a href ="dataCleaning.html" target="_blank">Data Cleaning</a> </li>
+        <li class="nav"><a href ="exploring.html" target="_blank">Exploring Data</a> </li>
+        <li class="nav"><a href ="clustering.html" target="_blank">Clustering</a> </li>
+        <li class="nav"><a href ="ARM.html" target="_blank">ARM and Networking</a> </li>
+        <li class="nav"><a href ="decisionTree.html" target="_blank">Decision Tree</a> </li>
+        <li class="nav"><a href ="navie.html" target="_blank">Naive Bayes</a> </li>
+        <li class="nav"><a href ="SVM.html" target="_blank">SVM</a> </li> 
+        <li class="nav"><a href ="conclusions.html" target="_blank">Conclusions</a> </li> 
+        <li class="nav"><a href ="infographic.html" target="_blank">Infographic</a> </li> 
+    </ul>
+    </nav>  
+    
+    <body>
+        <h2>Decision Tree: Code</h2>
+
+        <p>This is my python code for Decision Tree.</p>
+        <p>I will show my data after the code part.</p>
+        <ol class = "file1">
+        <li class = "file"><a href ="files/m5.py" target= "_blank">Python code make the labeled data</a></li>
+        <li class = "file1"><a href ="files/cleanCSV1.csv" target= "_blank">CSV File</a></li>
+        </ol>
+        <br>
+        
+        
+        <p>This is my R code for ARM.</p>
+        <p></p>
+        <ol class = "file1">
+        <li class = "file1"><a href ="files/m5R.pdf" target= "_blank">R code PDF</a></li>
+        <li class = "file1"><a href ="files/marvel.csv" target= "_blank">CSV File</a></li>
+        </ol>
+        <br>
+        <hr>
+        
+
+        
+        <h2>Explain my Python code</h2>
+        <h3>The labeled text data</h3>
+        <p>This is what my data looks like</p>
+        <p>The data comes from my previous work.</p>
+        <p>The whole data is the news connected to marvel in the past three month.</p>
+        <p>The label is about the publish date.</p>
+        <img src="photo/m51.png">
+        <hr>
+        
+        <h3>Wordcloud about my data</h3>
+        <p>These are three wordcloud for my data with different label.</p>
+        <p>Even these news are all around marvel, we can still see some difference from these wordcloud</p>
+        <p>The newest news:</p>
+        <img src="photo/m52.png" alt="p code 1">
+
+        <p>The news time that not too far away:</p>
+        <img src="photo/m53.png" alt="p code 1">
+        
+        <p>The old news:</p>
+        <img src="photo/m54.png" alt="p code 1">
+        <br>
+        <hr>
+        
+        <h3>Decision Tree Vis</h3>
+        <p>I made three different decision trees by Python.</p>
+        <p>The first two decision trees use the same training and test set. However, the first tree use Entropy method and second tree use Gini.</p>
+        <p>The third tree also uses Entropy but I give it a training set 85% of the original data instead of 75% since I think the previous tree did not perform very well.</p>
+        <p>Due to the page limitation, I only screeshot part of my decision tree. You can click the link below to see the full graph.</p>
+        <p>We can see that tree 1 and tree 2 have some difference but the node splitting is the same and the organization is very similar.</p>
+        <p>By using different training sets, tree 3 has different ways to split nodes.</p>
+        <br>
+        <p>The newest news:</p>
+        <li class = "file1"><a href ="photo/Mytree1.pdf" target= "_blank">new</a></li>
+        <br>
+        <img src="photo/m55.png" alt="p code 1" >
+
+        <p>The news time that not too far away:</p>
+        <li class = "file1"><a href ="photo/Mytree2.pdf" target= "_blank">middle</a></li>
+        <br>
+        <img src="photo/m56.png" alt="p code 1">
+        
+        <p>The old news:</p>
+        <li class = "file1"><a href ="photo/Mytree3.pdf" target= "_blank">old</a></li>
+        <br>
+        <img src="photo/m57.png" alt="p code 1">
+        <hr>
+        
+        <h3>Confusion matrix</h3>
+        <p>Same as I discussed before, the Entropy and Gini has similar confusion matrix.</p>
+        <p>Even the Gini one is better, the results are similar and we can see there are only around 50% accuracy.</p>
+        <p>The third confusion matrix looks better when we give it more training sets, it has 70% accuracy.</p>
+        <img src="photo/m58.png">
+        <hr>
+        
+        <h2>Explain my R code</h2>
+        <h3>Mixed record data</h3>
+        <p>This is what my R mixed data looks like.</p>
+        <p>The label is the alignment of marvel characters, which include: good characters, neutral characters and bad characters.</p>
+        <img src="photo/m59.png">
+        <hr>
+        
+        <h3>Decision Trees</h3>
+        <p>I made three different decision trees by R.</p>
+        <p>The first tree made by Gini method, the second tree made by Information method and I choosed only part of my data(year, sex, id) to made the third tree.</p>
+        <p>We can see all of these trees have the similar structure with a little difference</p>
+        <p>For the first two trees, the node splitting is also similar</p>
+        <br>
+        <p>Gini:</p>
+        <img src="photo/m521.png">
+        <p>Information:</p>
+        <img src="photo/m522.png">     
+        <p>Part of the variables:</p>
+        <img src="photo/m523.png">
+        <hr>
+        
+        <h3>Confusion matrix</h3>
+        <p>From these confusion matrix, we can see the accuracy is around 70%.</p>
+        <p>The third tree has a higher accuracy but not a lot.</p>
+        <p>We do not get good predictions with neural characters, This may be because there are not so many rows of neural characters in our original dataset so we can not get enough training data.</p>
+        <br>
+        <p>Gini:</p>
+        <img src="photo/m524.png">
+        <p>Information:</p>
+        <img src="photo/m525.png">     
+        <p>Part of the variables:</p>
+        <img src="photo/m526.png">        
+        <hr>
+
+        <h3>Summary</h3>
+        <p>The decision tree is a good way to find a possible consequences of a dataset, whatever qualitative or quantitative.
+        From my decision tree above, we can get a lot of information.</p>
+        <p>For Python part, we can discover that Gini and Entropy will get similar result. More training sets will have a higher accuracy results.
+        Focus on my data, we can see there is a clear division by the word "shang", "spider" and "sony". I think this indicate the timeline with marvel movies.
+        The movie "Shang-Chi and ten rings" and "Sony's Spider-Man Universe" shows up in different day and they appeared in the different date of news, which is our dataset.</p>
+        <p>For the R part, From the confusion matrix we can see that we have higher accuracy on "good characters".
+        We may do some prediction on a new character to see if he or she is a good character by some other feature. However, it is hard to judge if he is bad or neutral.
+        We also know that the data of neutral characters may not enough to get a good decision tree.</p>
+    </body>
+
+
+</html>

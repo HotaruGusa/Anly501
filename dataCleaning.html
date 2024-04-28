@@ -1,0 +1,154 @@
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        ol.file1 li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+     
+        body {
+        	font-family:verdana;
+            background-image: ;
+            background-color: ;
+        }
+        
+        ul.nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #004d99;
+        }
+        
+        li.nav {
+            float: left;
+        }
+        
+        li.nav a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li.nav a:hover, .dropdown:hover .dropbtn {
+            background-color: grey;
+        }
+        
+        li.dropdown {
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {background-color: light grey}
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        body {
+            background-image: url("photo/lblue.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    </head>
+    
+    
+    <nav class="menu">
+    <ul class = "nav">
+        <li class="nav"><a href ="index.html" target= "_blank">Home</a> </li>
+        <li class="nav"><a href="introduction.html" target="_blank">Introduction</a> </li>
+        <li class="nav"><a href ="dataGathering.html" target="_blank">Data Gathering</a> </li>
+        <li class="nav"><a href ="dataCleaning.html" target="_blank">Data Cleaning</a> </li>
+        <li class="nav"><a href ="exploring.html" target="_blank">Exploring Data</a> </li>
+        <li class="nav"><a href ="clustering.html" target="_blank">Clustering</a> </li>
+        <li class="nav"><a href ="ARM.html" target="_blank">ARM and Networking</a> </li>
+        <li class="nav"><a href ="decisionTree.html" target="_blank">Decision Tree</a> </li>
+        <li class="nav"><a href ="navie.html" target="_blank">Naive Bayes</a> </li>
+        <li class="nav"><a href ="SVM.html" target="_blank">SVM</a> </li> 
+        <li class="nav"><a href ="conclusions.html" target="_blank">Conclusions</a> </li> 
+        <li class="nav"><a href ="infographic.html" target="_blank">Infographic</a> </li> 
+    </ul>
+    </nav>  
+    
+    <body>
+        <h2>Result of the cleaned data</h2>
+        <p>This is my R code that cleans record, labeled data that has both qualitative and quantitative variables.</p>
+        <p>The data itself comes from "five-thirty-eight" statistics, see more on data gathering page.</p>
+        <ol class = "file1">
+        <li class = "file1"><a href ="files/Anly501dc.Rmd" target= "_blank">R code for data cleaning</a></li>
+        <li class = "file1"><a href ="files/anly501dc.pdf" target= "_blank">R code pdf</a></li>
+        </ol>
+        <br>
+        <p>This is what I get after I clean these data:</p>
+        <ol class = "file1">
+        <li class = "file"><a href ="files/marvel_df.csv" target= "_blank">Cleaned Data</a></li>
+        </ol>
+        <br>
+    
+        <p>This is my python code that cleans text data and includes a label for corpus.</p>
+        <p>The label is different news publisher.</p>
+        <ol class = "file1">
+        <li class = "file"><a href ="files/main2.py" target= "_blank">Python code for data cleaning</a></li>
+        </ol>
+        <br>
+        <p>This is my python code for csv file</p>
+        <ol class = "file1">
+        <li class = "file"><a href ="files/main22.py" target= "_blank">Python code for csv</a></li>
+        </ol>
+        <br>
+        <p>This is what I got by cleaning text data.</p>
+        <ol class = "file1">
+        <li class = "file"><a href ="files/corpus_df.csv" target= "_blank">Corpus_df.csv</a></li>
+        <li class = "file"><a href ="files/cleanCSV.csv" target= "_blank">cleanCSV.csv</a></li>
+        </ol>
+        <br>
+        
+        <h2>Explain my code</h2>
+        <h3>R code</h3>
+        <p>By checking how much data I have, there are some columns that do not connect to my analysis.</p>
+        <img src="photo/m23.png" alt="r code 1">
+        <p>Only choose the data I want.</p>
+        <img src="photo/m24.png" alt="r code 2">
+        <p>For the "gsm" column, set the default text to replace missing value.</p>
+        <img src="photo/m25.png" alt="r code 3">
+        <p>By checking the na value, there are still two columns that have missing value.</p>
+        <p>set different default values for them, see more details in the code file.</p>
+        <img src="photo/m26.png" alt="r code 4">
+        
+        <h3>Python code</h3>
+        <p>After setting the path, get each file name so we can read files.</p>
+        <img src="photo/m27.png" alt="p code 1">
+        <p>Since the original data has many garbled errors and links. We need to clean them first</p>
+        <img src="photo/m28.png" alt="p code 2">
+        <p>Using CountVectorizer to create a document term matrix.</p>
+        <img src="photo/m29.png" alt="p code 3">
+        <p>Create labels and write our data to csv</p>
+        <img src="photo/m211.png" alt="p code 4">
+        
+        <p>For the csv cleaning, since I have both title and description variables, I add them together to be a content variables.</p>
+        <img src="photo/m213.png" alt="p code 5">
+
+
+    </body>
+
+
+</html>

@@ -1,0 +1,209 @@
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        ol.file1 li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+        ol.rule li{
+            padding: 2px 20px;
+            margin: 2px;
+        }
+        
+     
+        body {
+        	font-family:verdana;
+            background-image: ;
+            background-color: ;
+        }
+        
+        ul.nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #004d99;
+        }
+        
+        li.nav {
+            float: left;
+        }
+        
+        li.nav a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li.nav a:hover, .dropdown:hover .dropbtn {
+            background-color: grey;
+        }
+        
+        li.dropdown {
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {background-color: light grey}
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        body {
+            background-image: url("photo/lblue.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    </head>
+    
+    
+    <nav class="menu">
+    <ul class = "nav">
+        <li class="nav"><a href ="index.html" target= "_blank">Home</a> </li>
+        <li class="nav"><a href="introduction.html" target="_blank">Introduction</a> </li>
+        <li class="nav"><a href ="dataGathering.html" target="_blank">Data Gathering</a> </li>
+        <li class="nav"><a href ="dataCleaning.html" target="_blank">Data Cleaning</a> </li>
+        <li class="nav"><a href ="exploring.html" target="_blank">Exploring Data</a> </li>
+        <li class="nav"><a href ="clustering.html" target="_blank">Clustering</a> </li>
+        <li class="nav"><a href ="ARM.html" target="_blank">ARM and Networking</a> </li>
+        <li class="nav"><a href ="decisionTree.html" target="_blank">Decision Tree</a> </li>
+        <li class="nav"><a href ="navie.html" target="_blank">Naive Bayes</a> </li>
+        <li class="nav"><a href ="SVM.html" target="_blank">SVM</a> </li> 
+        <li class="nav"><a href ="conclusions.html" target="_blank">Conclusions</a> </li> 
+        <li class="nav"><a href ="infographic.html" target="_blank">Infographic</a> </li> 
+    </ul>
+    </nav>  
+    
+    <body>
+        <h2>ARM: Code</h2>
+
+        <p>This is my python code for cleaning part of data and making it become transaction data.</p>
+        <p>I will show my data after the code part.</p>
+        <ol class = "file1">
+        <li class = "file"><a href ="files/m4.py" target= "_blank">Python code make the data transaction</a></li>
+        <li class = "file1"><a href ="files/news_transaction.csv" target= "_blank">CSV File</a></li>
+        </ol>
+        <br>
+        
+        
+        <p>This is my R code for ARM.</p>
+        <p></p>
+        <ol class = "file1">
+        <li class = "file1"><a href ="files/Anly501 ARM.pdf" target= "_blank">R code PDF</a></li>
+        </ol>
+        <br>
+    
+        <hr>
+        
+        <h3>The transaction data</h3>
+        <p>This is what my data looks like</p>
+        <p>The whole data comes from the newsapi I collected before.</p>
+        <p>The whole data is the news connected to marvel in the past three month.</p>
+        <p>I pick the Headline part of the data and transform them to be the transaction data.</p>
+        <img src="photo/m41.png" alt="r code 1">
+        <hr>
+        
+        <h2>Explain my code</h2>
+        <p>ARM: Association rule learning is a rule-based machine learning method for discovering interesting relations between variables in large databases.</p>
+        <p>I will use the rule of support, lift, confidence to determine the ARM of my data.</p>
+        <ol class = "rule">
+            <li class = "rule">support: Sup(X,Y) = P(X,Y)</li>
+            <li class = "rule">lift: Lift(X,Y) = P(X,Y)/P(X)P(Y))</li>
+            <li class = "rule">confidence: Conf(X,Y)=P(X,Y)/P(Y)</li>
+        </ol>
+        <p>X, Y stand for different word.</p>
+        <p>P(X) or P(Y) stand for the probability of the word appearance in whole rows.</p>
+        <hr>
+        
+        <h3>Table of the top 15 rules</h3>
+        <p>These are the dataframe of three rules.</p>
+        <p>In my data, the confidence always shows 1 because the headline of a news is too long, we can always find  P(Y)->P(X) when get P(Y)</p>
+        <p>We can see the word"marvel" has highly connection with word "rings" and "shang".</p>
+        <p>I think the reason is the movie "Shang-Chi and ten rings" just show up in the past three month.</p>
+        <p>We can also see "spider" and "sony" are connected. I think it is because the movie "Sony's Spider-Man Universe".</p>
+        <p>By support:</p>
+        <img src="photo/m43.png" alt="r code 1">
+
+        <p>By lift:</p>
+        <img src="photo/m44.png" alt="r code 1">
+        
+        <p>By confidence:</p>
+        <img src="photo/m42.png" alt="r code 1">
+        <br>
+        <hr>
+        
+        <h3>Vis Network Graph</h3>
+        <p>The support and confidence visNetwork graph both shows many words connect to "marvel", which is true since I set the keyword "marvel" when I use the news API</p>
+        <p>The lift rule shows "sony", "rings" are the central words. This is because of the recent movies I mentioned before.</p>
+        <p>By support:</p>
+        <img src="photo/m46.png" alt="r code 1" width = 650 height = 500>
+
+        <p>By lift:</p>
+        <img src="photo/m47.png" alt="r code 1" width = 650 height = 500>
+        
+        <p>By confidence:</p>
+        <img src="photo/m45.png" alt="r code 1">
+        <hr>
+        
+        <h3>igraph Graph</h3>
+        <p>The igraph shows the same thing like the visNetwork with different way of expression</p>
+        <p>By support:</p>
+        <img src="photo/m49.png" alt="r code 1" width = 500 height = 400>
+
+        <p>By lift:</p>
+        <img src="photo/m411.png" alt="r code 1" width = 500 height = 400>
+        
+        <p>By confidence:</p>
+        <img src="photo/m48.png" alt="r code 1" width = 500 height = 400>
+        <hr>
+        
+        <h3>Network D3 Graph</h3>
+        <p>These are interactive graphs by using Network D3</p>
+        <p>We still can see the "marvel" is the most important words with support and lift rules.</p>
+        <p>For the confidence rule, the graph seems a little bit strange but make sense since a lot of confidence value is 1.</p>
+        <p>By support:</p>
+        <li class = "file1"><a href ="files/support_network.html" target= "_blank">confidence_network</a></li>
+
+        <p>By lift:</p>
+        <li class = "file1"><a href ="files/lift_network.html" target= "_blank">confidence_network</a></li>
+        
+        <p>By confidence:</p>
+        <li class = "file1"><a href ="files/confidence_network.html" target= "_blank">confidence_network</a></li>
+        <hr>
+        
+
+        <h3>Summary</h3>
+        <p>The ARM identify strong rules discovered in databases. From support, lift and confidence rules, we can easily find the relationship between words. 
+        We can choose the rules base on our decision. Support is an indication of how frequently the itemset appears in the dataset. 
+        Confidence is an indication of how often the rule has been found to be true. Lift can judge the denpendence of words.
+        Even we use the different rules, we can get the similiar result with a little changes. The ARM visulization is very easily to understand by normal people.</p>
+        <p>For my data, we can judge the "marvel" is the most important word and many words connect to it. On the other hand, "rings" and "chang" connected, "sony" and "spider"
+        shows up many times with. This make sense because movies "Shang-Chi and ten rings" and "Sony's Spider-Man Universe" show up in the past three month. For some other adjectives word,
+        we can see some word like "legend" related to marvel universe. This also shows kind of category of marvel universe. Marvel is a story about legend and hero.</p>
+
+
+    </body>
+
+
+</html>

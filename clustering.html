@@ -1,0 +1,229 @@
+<html>
+    <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+        ol.file1 li{
+            float: left;
+            list-style-type: none;
+            padding: 2px 20px;
+            margin: 2px;
+        }
+     
+        body {
+        	font-family:verdana;
+            background-image: ;
+            background-color: ;
+        }
+        
+        ul.nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #004d99;
+        }
+        
+        li.nav {
+            float: left;
+        }
+        
+        li.nav a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li.nav a:hover, .dropdown:hover .dropbtn {
+            background-color: grey;
+        }
+        
+        li.dropdown {
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {background-color: light grey}
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        body {
+            background-image: url("photo/lblue.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    </head>
+    
+    
+    <nav class="menu">
+    <ul class = "nav">
+        <li class="nav"><a href ="index.html" target= "_blank">Home</a> </li>
+        <li class="nav"><a href="introduction.html" target="_blank">Introduction</a> </li>
+        <li class="nav"><a href ="dataGathering.html" target="_blank">Data Gathering</a> </li>
+        <li class="nav"><a href ="dataCleaning.html" target="_blank">Data Cleaning</a> </li>
+        <li class="nav"><a href ="exploring.html" target="_blank">Exploring Data</a> </li>
+        <li class="nav"><a href ="clustering.html" target="_blank">Clustering</a> </li>
+        <li class="nav"><a href ="ARM.html" target="_blank">ARM and Networking</a> </li>
+        <li class="nav"><a href ="decisionTree.html" target="_blank">Decision Tree</a> </li>
+        <li class="nav"><a href ="navie.html" target="_blank">Naive Bayes</a> </li>
+        <li class="nav"><a href ="SVM.html" target="_blank">SVM</a> </li> 
+        <li class="nav"><a href ="conclusions.html" target="_blank">Conclusions</a> </li> 
+        <li class="nav"><a href ="infographic.html" target="_blank">Infographic</a> </li> 
+    </ul>
+    </nav>  
+    
+    <body>
+        <p>This is my R code for data clustering.</p>
+        <p>Since my original data has not 8 columns for numeric data, I downloaded a new csv data from kaggle and did some cleaning for it.</p>
+        <ol class = "file1">
+        <li class = "file1"><a href ="files/Anly501m3.Rmd" target= "_blank">R code for data clustering</a></li>
+        <li class = "file1"><a href ="files/Anly501dc.pdf" target= "_blank">R code PDF</a></li>
+        <li class = "file1"><a href ="files/mdc.csv" target= "_blank">CSV File (R)</a></li>
+        </ol>
+        <br>
+    
+        <p>This is my python code for data clustering.</p>
+        <p>The label is the timeline for publishing news, 1 means the earliest.</p>
+        <ol class = "file1">
+        <li class = "file"><a href ="files/main_m3.py" target= "_blank">Python code for data clustering</a></li>
+        <li class = "file1"><a href ="files/cleanCSV.csv" target= "_blank">CSV File (Python)</a></li>
+        </ol>
+        <br>
+        <hr>
+        
+        <h2>Clustering: R part</h2>
+        <h3>Data Cleaning</h3>
+        <p>The csv file base on some rate and comment on movies connected to marvel.</p>
+        <p>For the new CSV file, I add the label based on the runtime of each movie.</p>
+        <p>This is what the csv file looks like after I clean it.</p>
+        <img src="photo/m31.png" alt="r code 1">
+        <hr>
+        
+        <h3>K-means</h3>
+        <p>This is my K-Means under 3 k-values, k equal to 2, 3 and 4.</p>
+        <p>Due to the page limitation, you can see more data information in my r pdf file.</p>
+        <p>From these 3 graphs, we can see when k value goes higher, these groups almost in superposition.</p>
+        <p>We can concluded that the clustering by small k value seems better. </p>
+        <p>In these data, maybe k = 2 is the best situation to do the clustering.</p>
+        <img src="photo/m323.png" alt="r code 10">
+                <br>
+
+        <img src="photo/m32.png" alt="r code 2">
+                <br>
+
+        <img src="photo/m33.png" alt="r code 3">
+                <br>
+
+        <img src="photo/m34.png" alt="r code 4">
+        <hr>
+        
+        <h3>Hierarchical clustering and dendrogram</h3>
+        <p>I used Euclidean,Manhattan and Pearson distances to draw these dendrogram.</p>
+        <p>The dendrogram clearly shows the relationship of samples. In all graph, the dendrogram divide samples to 2 first.</p>
+        <p>After 2, 4 is maybe another idea. However, we can judge that k should not be any number larger than 4 in this case.</p>
+        <img src="photo/m35.png" alt="r code 5">
+                <br>
+
+        <img src="photo/m36.png" alt="r code 6">
+                <br>
+
+        <img src="photo/m37.png" alt="r code 7">
+        <hr>
+        
+        <h3>Distance matrices</h3>
+        <p>There are three three different distance matrices.</p>
+        <p>The first is the pairwise distance between all pairs of data vectors with Euclidean. </p>
+        <p>The second method is Manhattan, and the third is Cosine Sim.</p>
+        <p>We can see that Euclidean and Manhattan has similar result like 58th row and 54th row has the highest relationship.</p>
+        <p>THe Cosine Sim one looks a little bit strange but it follows the previous k-means result.</p>
+        <img src="photo/m324.png" alt="r code 13">
+        <p>Euclidean</p>
+        <img src="photo/m38.png" alt="r code 8">
+        <p>Manhattan</p>
+        <img src="photo/m39.png" alt="r code 9">
+        <p>Cosine Sim</p>
+        <img src="photo/m311.png" alt="r code 10">
+        <hr>
+        
+        <h3>Determine best k</h3>
+        <p>We can see from these graphs, both methods indicate that k=2 looks like the best one to choose since it has the obvious slope change.</p>
+        <p>From the first graph, k = 4 is also worth to choose.</p>
+        <img src="photo/m325.png" alt="r code 14">
+        <br>
+        <img src="photo/m312.png" alt="r code 11">
+        <p>Silhouette</p>
+        <img src="photo/m313.png" alt="r code 12">
+        <hr>
+        
+        <h3>Summary</h3>
+        <p>In short, the best way to group the dataset into 2 groups. Otherwise, k = 4 is also another idea.</p>
+        <p>Since we have four labels with runtime "short", "short-medium", "medium-long", "long", we may merge them to two labels for better label.</p>
+        <p>In general, 4 labels is not so bad since 4 is also one of our choices.</p>
+        <hr>
+
+        <h2>Clustering: Python part</h2>
+        <h3>Check data</h3>
+        <p>This is a text dataset where the words are the columns and the articles are the rows.</p>
+        <p>The label 1,2,3 are choose from the articles' publish data, 1 means the earliest and 3 means latest.</p>
+        <img src="photo/m314.png" alt="p code 1">
+        <hr>
+        
+        <h3>WordCloud</h3>
+        <p>This is the wordcloud for this text dataset.</p>
+        <img src="photo/m316.png" alt="p code 2">
+
+        <h3>Python: k-means</h3>
+        <p>Same as R code, I used 3 values that k = 2,3,4 to see the results.</p>
+        <p>Different with R, we can see when k goes bigger, we still have other groups that suitable for k.</p>
+        <p>We can suppose that we my except a greater k value</p>
+        <p>For the visualization, because of the page limitation, you can magnify the graph in my python code.</p>
+        <p>We can see there are some points around the edge from label 1, but most poinst has good connection.</p>
+        <img src="photo/m318.png" alt="p code 3">
+        <br>
+        <img src="photo/m315.png" alt="p code 4">
+        <p>scatter plot by PCA</p>
+        <img src="photo/m317.png" alt="p code 5">
+        <hr>
+        
+        <h3>DBSCAN and Hierarchical</h3>
+        <p>From the dendrogram, There are many groups we can divide to.</p>
+        <p>The best choice may be around 5 from this graph.</p>
+        <img src="photo/m319.png" alt="p code 6">
+        <br>
+        <img src="photo/m321.png" alt="p code 7">
+        <hr>
+        
+        <h3>Choose best k value</h3>
+        <p>From silhouette graph, 3 and 5 may be a good k value.</p>
+        <p>The second graph also hsow that k equal to 4 and 5 also works.</p>
+        <img src="photo/m322.png" alt="p code 8">
+        <hr>
+        
+        <h3>Summary</h3>
+        <p>Compared to the R data, the text dataset looks more complex.</p>
+        <p>For this dataset, we should better choose a greater k value like 5. 3,4,5,6 are all fit to a good k value in this dataset.</p>
+        <p>We have some rows(articles) that are far away from others. We may want to drop them or clustering them together in some cases.</p>
+        <p>We may want 1 or 2 more labels based on the clustering.</p>
+
+
+    </body>
+
+
+</html>
