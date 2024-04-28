@@ -1,0 +1,109 @@
+---
+title: "Anly501 data cleaning"
+author: "Yangyi LI"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r}
+dataset_Name <- "marvel.csv"
+
+# read the csv
+marvel_df <- read.csv(dataset_Name)
+head(marvel_df, n = 15)
+
+# check data types
+str(marvel_df)
+
+# change variables to lower case
+names(marvel_df)[1:13] <- tolower(names(marvel_df)[1:13])
+
+# check colnames
+(ColNames<-names(marvel_df))
+
+# There are some data I may not want have right now
+# drop the column "page_id", "urlslug", first.appearance
+marvel_df <- marvel_df %>% select(name, id, align, eye, hair, sex, gsm, alive, appearances, year)
+head(marvel_df)
+```
+
+
+```{r}
+# when I check colnames and datatype, gsm seems blank
+# check gsm
+marvel_df$gsm[1:100]
+
+# There are some specific case like bisexual characters and homosexual characters
+# let's set Heterosexual characters for default
+marvel_df$gsm <- ifelse(marvel_df$gsm == "", 
+                          "heterosexual characters", marvel_df$gsm)
+
+# check it
+marvel_df$gsm[1:100]
+```
+
+```{r}
+head(marvel_df)
+# Let's make summary of all the columns
+lapply(marvel_df,summary) 
+
+```
+
+```{r}
+# we can see some missing values in our datasets
+sum(is.na(marvel_df$name))
+sum(is.na(marvel_df$id))
+sum(is.na(marvel_df$align))
+sum(is.na(marvel_df$eye))
+sum(is.na(marvel_df$hair))
+sum(is.na(marvel_df$sex))
+sum(is.na(marvel_df$gsm))
+sum(is.na(marvel_df$alive))
+sum(is.na(marvel_df$appearances)) # exist missing value
+sum(is.na(marvel_df$year))  #exist missing value
+```
+
+```{r}
+# since we know this marvel characters. set the appearances for 0
+# the character may never show up just exit in conversation
+marvel_df$appearances <- ifelse(is.na(marvel_df$appearances), 
+                          0, marvel_df$appearances)
+
+sum(is.na(marvel_df$appearances))
+```
+
+```{r}
+# I do not want to set the default year since I do not know when did this character first show up
+# Let's set it "need to drop" so I will remember the missing values while analyze the timeline
+# I do not drop it right now because the whole row I may want to analyze in the future
+marvel_df$year <- ifelse(is.na(marvel_df$year), 
+                          "need to drop", marvel_df$year)
+sum(is.na(marvel_df$year))
+
+head(marvel_df)
+```
+
+```{r}
+# write to a csv file
+write.csv(marvel_df, "marvel_df.csv")
+```
+
+
+```{r}
+# The mean of average time that marvel character appeared
+mean(marvel_df$appearances)
+
+# How many characters
+nrow(marvel_df)
+
+# When did marvel universe created
+min(marvel_df$year)
+
+# How many years marvel universe exist
+max(marvel_df$year)
+strtoi(min(marvel_df$year))
+```

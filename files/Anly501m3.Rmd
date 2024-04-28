@@ -1,0 +1,150 @@
+---
+title: "Anly501 data clustering"
+author: "Yangyi LI"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(NbClust)
+library(cluster)
+library(mclust)
+library(amap)
+library(factoextra)
+library(purrr)
+library(stylo)
+library(philentropy) 
+library(SnowballC)
+library(caTools)
+library(dplyr)
+library(textstem)
+library(stringr)
+library(wordcloud)
+library(tm)
+```
+
+# clean the new data, add labels
+```{r}
+marvel <- read.csv("mdc.csv")
+head(marvel)
+names(marvel) <- tolower(names(marvel))
+
+marvel <- marvel[order(marvel$runtime),]
+
+
+label <- c()
+
+for(value in marvel$runtime){
+  if(value < 100){
+    label <- c(label, "short")
+  }
+  else if(value < 125){
+    label <- c(label, "short-medium")
+  }
+  else if(value < 150){
+    label <- c(label, "medium-long")
+  }
+  else{
+    label <- c(label, "long")
+  }
+}
+marvel$label <- label
+
+marvel <- marvel %>% select(label, everything())
+marvel <- marvel %>% select(label, year, imdb_rating, imdb_votes, imdb_gross, tomato_meter, tomato_review, tom_aud_score, tom_ratings)
+head(marvel)
+
+```
+
+```{r}
+# It is not necessary to have a label for clustering right now
+marvel <- marvel %>% select(year, imdb_rating, imdb_votes, imdb_gross, tomato_meter, tomato_review, tom_aud_score, tom_ratings)
+
+str(marvel)
+marvel <- marvel %>% mutate_all(as.numeric)
+str(marvel)
+write.csv(marvel, "try.csv")
+
+M2_Eucl <- dist(marvel,method="minkowski", p=2) 
+M1_Man <- dist(marvel,method="manhattan")
+CosSim <- stylo::dist.cosine(as.matrix(marvel))
+
+str(M2_Eucl)
+
+```
+
+```{r}
+Hist1 <- hclust(M2_Eucl, method="ward.D2")
+plot(Hist1)
+Hist2 <- hclust(M1_Man, method="ward.D2")
+plot(Hist2)
+Hist3 <- hclust(CosSim, method="ward.D2")
+plot(Hist3)
+
+```
+
+
+```{r}
+k = 2
+(kmeansResult1 <- kmeans(marvel, k)) 
+kmeansResult1$centers
+
+(fviz_cluster(kmeansResult1, data = marvel,
+              ellipse.type = "convex",
+              palette = "jco",
+              ggtheme = theme_minimal()))
+```
+
+```{r}
+k = 3
+(kmeansResult1 <- kmeans(marvel, k)) 
+kmeansResult1$centers
+
+(fviz_cluster(kmeansResult1, data = marvel,
+              ellipse.type = "convex",
+              palette = "jco",
+              ggtheme = theme_minimal()))
+```
+
+```{r}
+
+k = 4
+(kmeansResult1 <- kmeans(marvel, k)) 
+kmeansResult1$centers
+(fviz_cluster(kmeansResult1, data = marvel,
+              ellipse.type = "convex",
+              palette = "jco",
+              ggtheme = theme_minimal()))
+
+```
+
+```{r}
+(heatmap(as.matrix(M2_Eucl), cexRow=3, cexCol = 3))
+(heatmap(as.matrix(M1_Man), cexRow=3, cexCol = 3))
+(heatmap(as.matrix(CosSim), cexRow=3, cexCol = 3))
+```
+```{r}
+png(file="HeatmapExample.png", width=1600, height=1600)
+heatmap(as.matrix(M2_Eucl), cexRow=3, cexCol = 3)
+dev.off()
+
+
+fviz_nbclust(
+  as.matrix(marvel), 
+  kmeans, 
+  k.max = 5,
+  method = "wss", ##Within-Cluster-Sum of Squared Errors 
+  diss = get_dist(as.matrix(marvel), method = "euclidean")
+)
+
+fviz_nbclust(marvel, method = "silhouette", 
+             FUN = hcut, k.max = 5)
+```
+
+```{r}
+# put label back
+marvel$label <- label
+
+marvel <- marvel %>% select(label, everything())
+```

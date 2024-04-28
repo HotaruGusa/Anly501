@@ -1,0 +1,236 @@
+---
+title: "Anly501api"
+author: "Yangyi LI"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library("httr")
+library("jsonlite")
+
+library("selectr")
+library("rvest")
+library("xml2")
+
+library(rtweet)
+library(twitteR)
+library(ROAuth)
+library(jsonlite)
+```
+
+```{r getAPI warining = FALSE}
+
+## Get the data
+## BUILD THE URL
+base <- "https://newsapi.org/v2/everything"
+
+qInTitle="marvel"
+language="en"
+apiKey="378458c93874414789c0f888a0814170"
+sources="business-insider"
+
+call1 <- paste(base,"?",
+               "qInTitle", "=", qInTitle, "&",
+               "language", "=", language, "&",
+               "sources", "=", sources,"&",
+               "apiKey", "=", apiKey,
+               sep="")
+
+(call1)
+
+NewsAPI_Call<-httr::GET(call1)
+(NewsAPI_Call)
+
+(MYDF<-httr::content(NewsAPI_Call))
+
+## Print to a file
+FileName = "business-insider.txt"
+## Start the file
+File <- file(FileName)
+
+df<-data.frame(articles = unlist(MYDF$articles))
+
+## Write to file
+write.csv(df,File,row.names = FALSE)
+
+
+```
+```{r getAPI warining = FALSE}
+
+## Get the data
+## BUILD THE URL
+base <- "https://newsapi.org/v2/everything"
+
+qInTitle="marvel"
+language="en"
+apiKey="378458c93874414789c0f888a0814170"
+sources="techcrunch"
+
+call1 <- paste(base,"?",
+               "qInTitle", "=", qInTitle, "&",
+               "language", "=", language, "&",
+               "sources", "=", sources,"&",
+               "apiKey", "=", apiKey,
+               sep="")
+
+(call1)
+
+NewsAPI_Call<-httr::GET(call1)
+(NewsAPI_Call)
+
+(MYDF<-httr::content(NewsAPI_Call))
+
+## Print to a file
+FileName = "techcrunch.txt"
+## Start the file
+File <- file(FileName)
+
+df<-data.frame(articles = unlist(MYDF$articles))
+
+## Write to file
+write.csv(df,File,row.names = FALSE)
+
+
+```
+
+```{r getAPI warining = FALSE}
+
+## Get the data
+## BUILD THE URL
+base <- "https://newsapi.org/v2/everything"
+
+qInTitle="marvel"
+language="en"
+apiKey="378458c93874414789c0f888a0814170"
+sources="buzzfeed"
+
+call1 <- paste(base,"?",
+               "qInTitle", "=", qInTitle, "&",
+               "language", "=", language, "&",
+               "sources", "=", sources,"&",
+               "apiKey", "=", apiKey,
+               sep="")
+
+(call1)
+
+NewsAPI_Call<-httr::GET(call1)
+(NewsAPI_Call)
+
+(MYDF<-httr::content(NewsAPI_Call))
+
+## Print to a file
+FileName = "buzzfeed.txt"
+## Start the file
+File <- file(FileName)
+
+df<-data.frame(articles = unlist(MYDF$articles))
+
+## Write to file
+write.csv(df,File,row.names = FALSE)
+
+
+```
+
+```{r getAPI warining = FALSE}
+
+## Get the data
+## BUILD THE URL
+base <- "https://newsapi.org/v2/everything"
+
+qInTitle="marvel"
+language="en"
+apiKey="378458c93874414789c0f888a0814170"
+sources="polygon"
+
+call1 <- paste(base,"?",
+               "qInTitle", "=", qInTitle, "&",
+               "language", "=", language, "&",
+               "sources", "=", sources,"&",
+               "apiKey", "=", apiKey,
+               sep="")
+
+(call1)
+
+NewsAPI_Call<-httr::GET(call1)
+(NewsAPI_Call)
+
+(MYDF<-httr::content(NewsAPI_Call))
+
+## Print to a file
+FileName = "polygon.txt"
+## Start the file
+File <- file(FileName)
+
+df<-data.frame(articles = unlist(MYDF$articles))
+
+## Write to file
+write.csv(df,File,row.names = FALSE)
+
+
+```
+
+```{r}
+
+filename="code.txt"
+
+
+(tokens<-read.csv(filename, header=TRUE, sep=","))
+
+consumerKey=as.character(tokens$consumerKey)
+consumerSecret=as.character(tokens$consumerSecret)
+access_Token=as.character(tokens$access_Token)
+access_Secret=as.character(tokens$access_Secret)
+
+requestURL='https://api.twitter.com/oauth/request_token'
+accessURL='https://api.twitter.com/oauth/access_token'
+authURL='https://api.twitter.com/oauth/authorize'
+
+setup_twitter_oauth(consumerKey,consumerSecret,access_Token,access_Secret)
+Search1<-twitteR::searchTwitter("#marvel",n=100, since="2015-01-01")
+(Search_DF2 <- twListToDF(Search1))
+
+(Search_DF2$text[1])
+
+FName = "TwitterR.txt"
+## Start the file
+MyFile <- file(FName)
+## Write Tweets to file
+cat(unlist(Search_DF2), " ", file=MyFile, sep="\n")
+close(MyFile)
+```
+
+```{r getAPI warining = FALSE}
+
+## Get the data
+## BUILD THE URL
+base <- "https://newsapi.org/v2/everything"
+
+qInTitle="marvel"
+language="en"
+apiKey="378458c93874414789c0f888a0814170"
+
+
+call1 <- paste(base,"?",
+               "qInTitle", "=", qInTitle, "&",
+               "language", "=", language, "&",
+               "pageSize", "=", 100,"&",
+               "apiKey", "=", apiKey,
+               sep="")
+
+(call1)
+
+NewsAPI_Call<-httr::GET(call1)
+(NewsAPI_Call)
+
+(MYDF<-httr::content(NewsAPI_Call))
+
+## Print to a file
+FileName = "newsapiR.txt"
+## Start the file
+File <- file(FileName)
+
+df<-data.frame(articles = unlist(MYDF$articles))
+
+## Write to file
+write.csv(df,File,row.names = FALSE)
+```
